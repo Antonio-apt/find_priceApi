@@ -1,0 +1,1 @@
+Apenas olhando algumas funcionalidades do FastApi

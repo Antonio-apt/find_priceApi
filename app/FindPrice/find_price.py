@@ -26,7 +26,7 @@ def extract_infos(product_cards):
         
     return products
 
-def find_product(search):
+def find_product(search, limit):
     search.lower().replace(' ', '-')
     try:
         page = requests.get(URL + search, headers=headers)
@@ -38,7 +38,8 @@ def find_product(search):
         titles = soup.findAll("a", {"class": "Link-bwhjk3-2 iDkmyz TouchableA-p6nnfn-0 joVuoc"})
         if titles:
             products = extract_infos(titles)
-            return products
+
+            return products[:limit], [{"results" : {"total": len(products), "limit": limit}}]
         else:
              logging.error("Product query error")
 
