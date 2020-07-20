@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 import logging
 
 URL = 'https://www.americanas.com.br/busca/'
